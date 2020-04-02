@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Memory Game</string>
+    <string name="mvbm">Enter Your Name</string>
+    <string name="button">Submit</string>
 </resources>
