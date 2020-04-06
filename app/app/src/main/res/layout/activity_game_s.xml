@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameSActivity">
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="81dp"
+        android:layout_height="133dp"
+        app:srcCompat="@android:drawable/divider_horizontal_dark"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="354dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="81dp"
+        android:layout_height="133dp"
+        app:srcCompat="@android:drawable/divider_horizontal_dark"
+        tools:layout_editor_absoluteX="291dp"
+        tools:layout_editor_absoluteY="385dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="81dp"
+        android:layout_height="77dp"
+        android:layout_marginBottom="220dp"
+        android:backgroundTint="#373232"
+        android:tint="#DF1111"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="220dp"
+        android:layout_height="229dp"
+        android:layout_marginBottom="188dp"
+        android:backgroundTint="#1845B6"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="81dp"
+        android:layout_height="133dp"
+        app:srcCompat="@android:drawable/divider_horizontal_dark"
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="38dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
