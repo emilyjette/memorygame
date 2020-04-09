@@ -7,42 +7,42 @@
     tools:context=".GameSActivity">
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/greenButton"
         android:layout_width="220dp"
         android:layout_height="320dp"
         android:layout_marginTop="104dp"
         android:backgroundTint="#29BF24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton8"
+        app:layout_constraintEnd_toStartOf="@+id/yellowButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5"
+        app:layout_constraintTop_toBottomOf="@+id/blueButton"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@android:drawable/divider_horizontal_dark" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/yellowButton"
         android:layout_width="220dp"
         android:layout_height="310dp"
         android:layout_marginTop="76dp"
         android:backgroundTint="#EAE716"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+        app:layout_constraintTop_toBottomOf="@+id/redButton"
         app:layout_constraintVertical_bias="0.977"
         app:srcCompat="@android:drawable/divider_horizontal_dark" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/blueButton"
         android:layout_width="220dp"
         android:layout_height="310dp"
         android:backgroundTint="#1845B6"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+        app:layout_constraintEnd_toStartOf="@+id/redButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/divider_horizontal_dark" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/redButton"
         android:layout_width="220dp"
         android:layout_height="310dp"
         android:backgroundTint="#CD1515"
@@ -51,7 +51,7 @@
         app:srcCompat="@android:drawable/divider_horizontal_dark" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/closeButton"
         android:layout_width="81dp"
         android:layout_height="77dp"
         android:backgroundTint="#373232"
