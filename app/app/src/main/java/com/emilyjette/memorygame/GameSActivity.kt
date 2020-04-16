@@ -13,38 +13,33 @@ import kotlinx.android.synthetic.main.activity_game_s.*
 import java.lang.Thread.sleep
 
 class GameSActivity : AppCompatActivity() {
-    var oldRedcolor:ColorStateList?=null
-    var oldBluecolor:ColorStateList?=null
-    var oldGreencolor:ColorStateList?=null
-    var oldYellowcolor:ColorStateList?=null
+
+    var redgametile=GameTiles()
+    var bluegametile=GameTiles()
+    var greengametile=GameTiles()
+    var yellowgametile=GameTiles()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_s)
         setup() //step 1
-        for(count in 1 ..8){
-            greenButton.flash(10  00L*count,oldGreencolor)
+        var setofcolors= setOf(redgametile,bluegametile,greengametile,yellowgametile)
+        for(count in 1 ..8) {
+            var tile = setofcolors.random()
+            tile.button?.flash(1000L * count, tile.oldcolor)
         }
-
-
-//        redButton.flash(500,oldRedcolor)
-//        blueButton.flash(1500,oldBluecolor)
-//        greenButton.flash(2500,oldGreencolor)
-//        yellowButton.flash(3500,oldYellowcolor)
-//        redButton.flash(4500,oldRedcolor)
-//        greenButton.flash(5500,oldGreencolor)
-//        blueButton.flash(6500,oldBluecolor)
-//        yellowButton.flash(7500,oldYellowcolor)
-
-
-
 
     }
     fun setup(){
-        oldBluecolor= blueButton.backgroundTintList
-        oldRedcolor= redButton.backgroundTintList
-        oldGreencolor= greenButton.backgroundTintList
-        oldYellowcolor= yellowButton.backgroundTintList
+        bluegametile.oldcolor= blueButton.backgroundTintList
+        redgametile.oldcolor= redButton.backgroundTintList
+        greengametile.oldcolor= greenButton.backgroundTintList
+        yellowgametile.oldcolor= yellowButton.backgroundTintList
+
+        bluegametile.button=blueButton
+        redgametile.button=redButton
+        greengametile.button=greenButton
+        yellowgametile.button=yellowButton
     }
     fun ImageButton.flash(time:Long,oldColor:ColorStateList?){
         Handler(Looper.getMainLooper()).postDelayed({
