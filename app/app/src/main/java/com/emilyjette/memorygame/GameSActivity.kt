@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import kotlinx.android.synthetic.main.activity_game_s.*
@@ -26,10 +27,17 @@ class GameSActivity : AppCompatActivity() {
         var setofcolors= setOf(redgametile,bluegametile,greengametile,yellowgametile)
         for(count in 1 ..8) {
             var tile = setofcolors.random()
+            order.add(tile)
             tile.button?.flash(1000L * count, tile.oldcolor)
         }
 
     }
+    fun onClick(view:View){
+        println("You clicked the button! Woo")
+    }
+
+    var order= mutableListOf<GameTiles>()
+
     fun setup(){
         bluegametile.oldcolor= blueButton.backgroundTintList
         redgametile.oldcolor= redButton.backgroundTintList
@@ -41,6 +49,7 @@ class GameSActivity : AppCompatActivity() {
         greengametile.button=greenButton
         yellowgametile.button=yellowButton
     }
+
     fun ImageButton.flash(time:Long,oldColor:ColorStateList?){
         Handler(Looper.getMainLooper()).postDelayed({
             this.backgroundTintList = resources.getColorStateList(R.color.flash_list_color)
