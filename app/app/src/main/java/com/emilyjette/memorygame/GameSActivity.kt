@@ -33,7 +33,15 @@ class GameSActivity : AppCompatActivity() {
 
     }
     fun onClick(view:View){
-        println("You clicked the button! Woo")
+
+        var clicked=view.id
+        var first=order[0]
+        println(clicked)
+        println(first.button?.id)
+        if(clicked==first.button?.id){
+            User.score+=1
+            println(User.score)
+        }
     }
 
     var order= mutableListOf<GameTiles>()
