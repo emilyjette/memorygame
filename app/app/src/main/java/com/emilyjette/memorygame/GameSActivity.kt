@@ -38,10 +38,14 @@ class GameSActivity : AppCompatActivity() {
         var first=order[0]
         println(clicked)
         println(first.button?.id)
-        if(clicked==first.button?.id){
+        if(checkIfRight(clicked, first)){
             User.score+=1
             println(User.score)
         }
+    }
+
+    fun checkIfRight(clicked:Int, first:GameTiles):Boolean{
+         return clicked==first.button?.id
     }
 
     var order= mutableListOf<GameTiles>()
@@ -56,6 +60,8 @@ class GameSActivity : AppCompatActivity() {
         redgametile.button=redButton
         greengametile.button=greenButton
         yellowgametile.button=yellowButton
+
+        User.score=0
     }
 
     fun ImageButton.flash(time:Long,oldColor:ColorStateList?){
