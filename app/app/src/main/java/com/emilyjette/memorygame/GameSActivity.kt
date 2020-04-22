@@ -19,6 +19,7 @@ class GameSActivity : AppCompatActivity() {
     var bluegametile=GameTiles()
     var greengametile=GameTiles()
     var yellowgametile=GameTiles()
+    var x=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,28 +30,42 @@ class GameSActivity : AppCompatActivity() {
             var tile = setofcolors.random()
             order.add(tile)
             tile.button?.flash(1000L * count, tile.oldcolor)
+
         }
 
     }
     fun onClick(view:View){
-
-        var clicked=view.id
-        var first=order[0]
-        println(clicked)
-        println(first.button?.id)
-        if(checkIfRight(clicked, first)){
-            User.score+=1
-            println(User.score)
+        if (x <8) {
+            var clicked=view.id
+            var tile = order[x]
+            x += 1
+            println(clicked)
+            println(tile.button?.id)
+            if (checkIfRight(clicked, tile)) {
+                User.score += 1
+                println(User.score)
+                if (User.score==8){
+                    //winner
+                    User.totalwins+=1
+                    User.highscore=8
+                }
+            }
+            else{
+//                println("wrong")
+                User.highscore=User.score
+            }
         }
+        else{}
     }
 
-    fun checkIfRight(clicked:Int, first:GameTiles):Boolean{
-         return clicked==first.button?.id
+    fun checkIfRight(clicked:Int, tile:GameTiles):Boolean{
+         return clicked==tile.button?.id
     }
 
     var order= mutableListOf<GameTiles>()
 
     fun setup(){
+
         bluegametile.oldcolor= blueButton.backgroundTintList
         redgametile.oldcolor= redButton.backgroundTintList
         greengametile.oldcolor= greenButton.backgroundTintList
@@ -62,6 +77,8 @@ class GameSActivity : AppCompatActivity() {
         yellowgametile.button=yellowButton
 
         User.score=0
+        x=0
+
     }
 
     fun ImageButton.flash(time:Long,oldColor:ColorStateList?){
