@@ -2,6 +2,7 @@
 
 package com.emilyjette.memorygame
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -51,11 +52,14 @@ class GameSActivity : AppCompatActivity() {
                 }
             }
             else{
-//                println("wrong")
+                println("wrong")
                 User.highscore=User.score
             }
         }
-        else{}
+        else{
+            var intent= Intent(this,ExitActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun checkIfRight(clicked:Int, tile:GameTiles):Boolean{
