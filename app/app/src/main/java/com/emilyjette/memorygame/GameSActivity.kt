@@ -12,7 +12,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import kotlinx.android.synthetic.main.activity_game_s.*
+import java.lang.Integer.max
 import java.lang.Thread.sleep
+
 
 class GameSActivity : AppCompatActivity() {
 
@@ -21,18 +23,13 @@ class GameSActivity : AppCompatActivity() {
     var greengametile=GameTiles()
     var yellowgametile=GameTiles()
     var x=0
+    lateinit var setofcolors:Set<GameTiles>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_s)
         setup() //step 1
-        var setofcolors= setOf(redgametile,bluegametile,greengametile,yellowgametile)
-        for(count in 1 ..8) {
-            var tile = setofcolors.random()
-            order.add(tile)
-            tile.button?.flash(1000L * count, tile.oldcolor)
-
-        }
+        startAgain()
 
     }
     fun onClick(view:View){
@@ -49,16 +46,17 @@ class GameSActivity : AppCompatActivity() {
                     //winner
                     User.totalwins+=1
                     User.highscore=8
+                    startAgain()
                 }
             }
             else{
                 println("wrong")
-                User.highscore=User.score
+                User.highscore= kotlin.math.max(User.highscore, User.score)
+                nextPage()
             }
         }
         else{
-            var intent= Intent(this,ExitActivity::class.java)
-            startActivity(intent)
+            nextPage()
         }
     }
 
@@ -82,6 +80,7 @@ class GameSActivity : AppCompatActivity() {
 
         User.score=0
         x=0
+         setofcolors= setOf(redgametile,bluegametile,greengametile,yellowgametile)
 
     }
 
@@ -93,5 +92,17 @@ class GameSActivity : AppCompatActivity() {
             this.backgroundTintList = oldColor
         }, time+500)
 
+    }
+    fun nextPage(){
+        var intent= Intent(this,ExitActivity::class.java)
+        startActivity(intent)
+    }
+    fun startAgain(){
+        for(count in 1 ..8) {
+            var tile = setofcolors.random()
+            order.add(tile)
+            tile.button?.flash(1000L * count, tile.oldcolor)
+
+        }
     }
 }
