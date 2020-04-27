@@ -9,11 +9,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import kotlinx.android.synthetic.main.activity_game_s.*
-import java.lang.Integer.max
-import java.lang.Thread.sleep
 
 
 class GameSActivity : AppCompatActivity() {
@@ -22,7 +19,8 @@ class GameSActivity : AppCompatActivity() {
     var bluegametile=GameTiles()
     var greengametile=GameTiles()
     var yellowgametile=GameTiles()
-    var x=0
+    var timesclicked=0
+    var maximumclicks=8
     lateinit var setofcolors:Set<GameTiles>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,30 +31,27 @@ class GameSActivity : AppCompatActivity() {
 
     }
     fun onClick(view:View){
-        if (x <8) {
+
+        if (timesclicked <8) {
             var clicked=view.id
-            var tile = order[x]
-            x += 1
+            var tile = order[timesclicked]
+            timesclicked += 1
             println(clicked)
             println(tile.button?.id)
             if (checkIfRight(clicked, tile)) {
                 User.score += 1
                 println(User.score)
-                if (User.score==8){
-                    //winner
-                    User.totalwins+=1
-                    User.highscore=8
-                    startAgain()
+                if (User.score==maximumclicks){
+                  win()
                 }
+
             }
             else{
-                println("wrong")
-                User.highscore= kotlin.math.max(User.highscore, User.score)
-                nextPage()
+                lose()
             }
         }
         else{
-            nextPage()
+            lose()
         }
     }
 
@@ -79,7 +74,7 @@ class GameSActivity : AppCompatActivity() {
         yellowgametile.button=yellowButton
 
         User.score=0
-        x=0
+        timesclicked=0
          setofcolors= setOf(redgametile,bluegametile,greengametile,yellowgametile)
 
     }
@@ -98,11 +93,25 @@ class GameSActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun startAgain(){
+        timesclicked=0
         for(count in 1 ..8) {
             var tile = setofcolors.random()
             order.add(tile)
             tile.button?.flash(1000L * count, tile.oldcolor)
 
         }
+    }
+    fun win(){
+        User.totalwins+=1
+        maximumclicks +=8
+        User.highscore=8*User.totalwins
+        startAgain()
+        timesclicked=0
+        
+    }
+    fun lose(){
+        println("wrong")
+        User.highscore= kotlin.math.max(User.highscore, User.score)
+        nextPage()
     }
 }
