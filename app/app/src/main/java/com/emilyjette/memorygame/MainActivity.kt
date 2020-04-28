@@ -16,6 +16,6 @@ class MainActivity : AppCompatActivity() {
     fun onClick(view:View){
         var intent= Intent(this,GameSActivity::class.java)
         startActivity(intent)
-        User.totalgames+=1
+
     }
 }

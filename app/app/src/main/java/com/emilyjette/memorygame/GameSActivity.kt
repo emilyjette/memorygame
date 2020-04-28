@@ -44,7 +44,6 @@ class GameSActivity : AppCompatActivity() {
                 if (User.score==maximumclicks){
                   win()
                 }
-
             }
             else{
                 lose()
@@ -73,7 +72,6 @@ class GameSActivity : AppCompatActivity() {
         greengametile.button=greenButton
         yellowgametile.button=yellowButton
 
-        User.score=0
         timesclicked=0
          setofcolors= setOf(redgametile,bluegametile,greengametile,yellowgametile)
 
@@ -86,7 +84,6 @@ class GameSActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             this.backgroundTintList = oldColor
         }, time+500)
-
     }
     fun nextPage(){
         var intent= Intent(this,ExitActivity::class.java)
@@ -98,20 +95,18 @@ class GameSActivity : AppCompatActivity() {
             var tile = setofcolors.random()
             order.add(tile)
             tile.button?.flash(1000L * count, tile.oldcolor)
-
         }
     }
     fun win(){
-        User.totalwins+=1
+        User.wins+=1
         maximumclicks +=8
-        User.highscore=8*User.totalwins
+        //User.highscore=8*User.wins
         startAgain()
         timesclicked=0
-
     }
     fun lose(){
         println("wrong")
-        User.highscore= kotlin.math.max(User.highscore, User.score)
+        //User.highscore= kotlin.math.max(User.highscore, User.score)
         nextPage()
     }
 }
