@@ -107,7 +107,7 @@ class GameSActivity : AppCompatActivity() {
         User.highscore=8*User.totalwins
         startAgain()
         timesclicked=0
-        
+
     }
     fun lose(){
         println("wrong")

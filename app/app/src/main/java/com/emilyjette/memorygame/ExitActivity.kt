@@ -10,6 +10,12 @@ class ExitActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exit)
-        textView3.text="You got "+ User.score +" point(s). Good Job"
+        if (User.score==1){
+            textView3.text="You got 1 point. Good Job"
+        }
+        else{
+            textView3.text="You got "+ User.score +" points. Good Job"
+        }
+        //textView4.text="Hello again, "+ User.name
     }
 }
