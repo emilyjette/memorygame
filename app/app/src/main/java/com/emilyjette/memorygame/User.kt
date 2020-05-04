@@ -7,4 +7,6 @@ object User {
     var score:Int=0
     var highscore:Int=0
     var playtimescore:Int=0
+    var totalgames:Int=0
+    var totalwins:Int=0
 }
