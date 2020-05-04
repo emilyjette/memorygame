@@ -11,12 +11,13 @@
         android:id="@+id/textView3"
         android:layout_width="177dp"
         android:layout_height="133dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="196dp"
         android:fontFamily="sans-serif-smallcaps"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="testing " />
@@ -37,4 +38,5 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.953"
         tools:text="textview" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

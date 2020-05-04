@@ -20,7 +20,6 @@ class GameSActivity : AppCompatActivity() {
     var greengametile=GameTiles()
     var yellowgametile=GameTiles()
     var timesclicked=0
-    var maximumclicks=8
     lateinit var setofcolors:Set<GameTiles>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +40,7 @@ class GameSActivity : AppCompatActivity() {
             if (checkIfRight(clicked, tile)) {
                 User.score += 1
                 println(User.score)
-                if (User.score==maximumclicks){
+                if (User.score==8){
                   win()
                 }
             }
@@ -61,7 +60,6 @@ class GameSActivity : AppCompatActivity() {
     var order= mutableListOf<GameTiles>()
 
     fun setup(){
-
         bluegametile.oldcolor= blueButton.backgroundTintList
         redgametile.oldcolor= redButton.backgroundTintList
         greengametile.oldcolor= greenButton.backgroundTintList
@@ -72,9 +70,7 @@ class GameSActivity : AppCompatActivity() {
         greengametile.button=greenButton
         yellowgametile.button=yellowButton
 
-        timesclicked=0
-         setofcolors= setOf(redgametile,bluegametile,greengametile,yellowgametile)
-
+        setofcolors= setOf(redgametile,bluegametile,greengametile,yellowgametile)
     }
 
     fun ImageButton.flash(time:Long,oldColor:ColorStateList?){
@@ -91,22 +87,26 @@ class GameSActivity : AppCompatActivity() {
     }
     fun startAgain(){
         timesclicked=0
+        order.clear()
         for(count in 1 ..8) {
             var tile = setofcolors.random()
             order.add(tile)
             tile.button?.flash(1000L * count, tile.oldcolor)
         }
+        User.games+=1
+        User.score=0
     }
     fun win(){
-        User.wins+=1
-        maximumclicks +=8
-        //User.highscore=8*User.wins
+        User.playtimewins+=1
         startAgain()
-        timesclicked=0
     }
     fun lose(){
         println("wrong")
-        //User.highscore= kotlin.math.max(User.highscore, User.score)
+        User.playtimescore=User.playtimewins*8+User.score
+        if(User.playtimescore>User.highscore){
+            User.highscore=User.playtimescore
+        }
+        User.playtimewins=0
         nextPage()
     }
 }
