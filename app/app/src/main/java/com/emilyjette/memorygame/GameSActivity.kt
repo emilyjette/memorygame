@@ -98,8 +98,15 @@ class GameSActivity : AppCompatActivity() {
     }
     fun win(){
         User.playtimewins+=1
+        var intent= Intent(this,StatusActivity::class.java)
+        startActivityForResult(intent,1)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
         startAgain()
     }
+
     fun lose(){
         println("wrong")
         User.playtimescore=User.playtimewins*8+User.score
