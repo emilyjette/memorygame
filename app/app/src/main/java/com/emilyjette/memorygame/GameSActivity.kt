@@ -93,7 +93,7 @@ class GameSActivity : AppCompatActivity() {
             order.add(tile)
             tile.button?.flash(1000L * count, tile.oldcolor)
         }
-        User.games+=1
+        User.playtimegames+=1
         User.score=0
     }
     fun win(){
