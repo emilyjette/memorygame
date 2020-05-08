@@ -98,6 +98,7 @@ class GameSActivity : AppCompatActivity() {
     }
     fun win(){
         User.playtimewins+=1
+        User.playtimescore=User.playtimewins*8
         var intent= Intent(this,StatusActivity::class.java)
         startActivityForResult(intent,1)
     }
@@ -110,8 +111,10 @@ class GameSActivity : AppCompatActivity() {
     fun lose(){
         println("wrong")
         User.playtimescore=User.playtimewins*8+User.score
+        User.highscore=getSharedPreferences("game",MODE_PRIVATE).getInt("highscore",0)
         if(User.playtimescore>User.highscore){
             User.highscore=User.playtimescore
+            getSharedPreferences("game",MODE_PRIVATE).edit().putInt("highscore",User.highscore).apply()
         }
         User.playtimewins=0
         nextPage()

@@ -14,4 +14,12 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
+    @Test
+    fun `everytime we set up pattern 8 +1 games`(){
+        assertEquals(0, User.playtimegames)
+
+        GameSActivity().startAgain()
+
+        assertEquals(1, User.playtimegames)
+    }
 }
