@@ -15,12 +15,7 @@ import kotlinx.android.synthetic.main.activity_game_s.*
 
 class GameSActivity : AppCompatActivity() {
 
-    var redgametile=GameTiles()
-    var bluegametile=GameTiles()
-    var greengametile=GameTiles()
-    var yellowgametile=GameTiles()
-    var timesclicked=0
-    lateinit var setofcolors:Set<GameTiles>
+    var game:Game=Game()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,35 +24,10 @@ class GameSActivity : AppCompatActivity() {
         startAgain()
 
     }
+    
     fun onClick(view:View){
-
-        if (timesclicked <8) {
-            var clicked=view.id
-            var tile = order[timesclicked]
-            timesclicked += 1
-            println(clicked)
-            println(tile.button?.id)
-            if (checkIfRight(clicked, tile)) {
-                User.score += 1
-                println(User.score)
-                if (User.score==8){
-                  win()
-                }
-            }
-            else{
-                lose()
-            }
-        }
-        else{
-            lose()
-        }
+        game.click(view.id)
     }
-
-    fun checkIfRight(clicked:Int, tile:GameTiles):Boolean{
-         return clicked==tile.button?.id
-    }
-
-    var order= mutableListOf<GameTiles>()
 
     fun setup(){
         bluegametile.oldcolor= blueButton.backgroundTintList
@@ -81,10 +51,12 @@ class GameSActivity : AppCompatActivity() {
             this.backgroundTintList = oldColor
         }, time+500)
     }
+
     fun nextPage(){
         var intent= Intent(this,ExitActivity::class.java)
         startActivity(intent)
     }
+
     fun startAgain(){
         timesclicked=0
         order.clear()
@@ -96,27 +68,10 @@ class GameSActivity : AppCompatActivity() {
         User.playtimegames+=1
         User.score=0
     }
-    fun win(){
-        User.playtimewins+=1
-        User.playtimescore=User.playtimewins*8
-        var intent= Intent(this,StatusActivity::class.java)
-        startActivityForResult(intent,1)
-    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         startAgain()
     }
 
-    fun lose(){
-        println("wrong")
-        User.playtimescore=User.playtimewins*8+User.score
-        User.highscore=getSharedPreferences("game",MODE_PRIVATE).getInt("highscore",0)
-        if(User.playtimescore>User.highscore){
-            User.highscore=User.playtimescore
-            getSharedPreferences("game",MODE_PRIVATE).edit().putInt("highscore",User.highscore).apply()
-        }
-        User.playtimewins=0
-        nextPage()
-    }
 }
