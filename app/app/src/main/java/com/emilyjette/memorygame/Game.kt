@@ -40,7 +40,7 @@ class Game(var activity:GameSActivity?) {
     }
 
     fun checkIfRight(clicked: Int, tile: GameTiles): Boolean {
-        return clicked == tile.button?.id
+        return clicked == tile.id
     }
 
     fun win(){
