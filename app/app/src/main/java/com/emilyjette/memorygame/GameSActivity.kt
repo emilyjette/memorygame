@@ -1,4 +1,4 @@
-@file:Suppress("DEPRECATION")
+
 
 package com.emilyjette.memorygame
 
@@ -15,41 +15,32 @@ import kotlinx.android.synthetic.main.activity_game_s.*
 
 class GameSActivity : AppCompatActivity() {
 
-    var game:Game=Game()
+    var game:Game=Game(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_s)
         setup() //step 1
-        startAgain()
+        game.startAgain()
 
     }
-    
+
     fun onClick(view:View){
         game.click(view.id)
     }
 
     fun setup(){
-        bluegametile.oldcolor= blueButton.backgroundTintList
-        redgametile.oldcolor= redButton.backgroundTintList
-        greengametile.oldcolor= greenButton.backgroundTintList
-        yellowgametile.oldcolor= yellowButton.backgroundTintList
+        game.bluegametile.oldcolor= blueButton.backgroundTintList
+        game.redgametile.oldcolor= redButton.backgroundTintList
+        game.greengametile.oldcolor= greenButton.backgroundTintList
+        game.yellowgametile.oldcolor= yellowButton.backgroundTintList
 
-        bluegametile.button=blueButton
-        redgametile.button=redButton
-        greengametile.button=greenButton
-        yellowgametile.button=yellowButton
+        game.bluegametile.button=blueButton
+        game.redgametile.button=redButton
+        game.greengametile.button=greenButton
+        game.yellowgametile.button=yellowButton
 
-        setofcolors= setOf(redgametile,bluegametile,greengametile,yellowgametile)
-    }
-
-    fun ImageButton.flash(time:Long,oldColor:ColorStateList?){
-        Handler(Looper.getMainLooper()).postDelayed({
-            this.backgroundTintList = resources.getColorStateList(R.color.flash_list_color)
-        }, time)
-        Handler(Looper.getMainLooper()).postDelayed({
-            this.backgroundTintList = oldColor
-        }, time+500)
+        game.setup()
     }
 
     fun nextPage(){
@@ -57,21 +48,15 @@ class GameSActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun startAgain(){
-        timesclicked=0
-        order.clear()
-        for(count in 1 ..8) {
-            var tile = setofcolors.random()
-            order.add(tile)
-            tile.button?.flash(1000L * count, tile.oldcolor)
-        }
-        User.playtimegames+=1
-        User.score=0
-    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        startAgain()
+        game.startAgain()
+    }
+
+    fun goToStatusActivity(){
+        var intent= Intent(this,StatusActivity::class.java)
+        startActivityForResult(intent,1)
     }
 
 }

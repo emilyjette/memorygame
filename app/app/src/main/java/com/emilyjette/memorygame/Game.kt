@@ -1,9 +1,14 @@
+@file:Suppress("DEPRECATION")
 package com.emilyjette.memorygame
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.os.Handler
+import android.os.Looper
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
-class Game {
+class Game(var activity:GameSActivity?) {
     var redgametile = GameTiles()
     var bluegametile = GameTiles()
     var greengametile = GameTiles()
@@ -41,19 +46,43 @@ class Game {
     fun win(){
         User.playtimewins+=1
         User.playtimescore=User.playtimewins*8
-        var intent= Intent(this,StatusActivity::class.java)
-        startActivityForResult(intent,1)
+        activity?.goToStatusActivity()
     }
 
     fun lose(){
         println("wrong")
         User.playtimescore=User.playtimewins*8+User.score
-        User.highscore=getSharedPreferences("game", AppCompatActivity.MODE_PRIVATE).getInt("highscore",0)
+        //User.highscore=getSharedPreferences("game", AppCompatActivity.MODE_PRIVATE).getInt("highscore",0)
         if(User.playtimescore>User.highscore){
             User.highscore=User.playtimescore
-            getSharedPreferences("game", AppCompatActivity.MODE_PRIVATE).edit().putInt("highscore",User.highscore).apply()
+           // getSharedPreferences("game", AppCompatActivity.MODE_PRIVATE).edit().putInt("highscore",User.highscore).apply()
         }
         User.playtimewins=0
-        nextPage()
+        activity?.nextPage()
+    }
+
+    fun startAgain(){
+        timesclicked=0
+        order.clear()
+        for(count in 1 ..8) {
+            var tile = setofcolors.random()
+            order.add(tile)
+            tile.button?.flash(1000L * count, tile.oldcolor)
+        }
+        User.playtimegames+=1
+        User.score=0
+    }
+
+    fun ImageButton.flash(time:Long, oldColor: ColorStateList?){
+        Handler(Looper.getMainLooper()).postDelayed({
+            this.backgroundTintList = resources.getColorStateList(R.color.flash_list_color)
+        }, time)
+        Handler(Looper.getMainLooper()).postDelayed({
+            this.backgroundTintList = oldColor
+        }, time+500)
+    }
+
+    fun setup(){
+        setofcolors= setOf(redgametile,bluegametile,greengametile,yellowgametile)
     }
 }
