@@ -43,7 +43,7 @@ class GameSActivity : AppCompatActivity() {
         game.bluegametile.id=blueButton.id
         game.redgametile.id=redButton.id
         game.greengametile.id=greenButton.id
-        game.yellowgametile.id=yellowButton.id 
+        game.yellowgametile.id=yellowButton.id
 
         game.setup()
     }

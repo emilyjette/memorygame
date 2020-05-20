@@ -16,6 +16,7 @@ class Game(var activity:GameSActivity?) {
     var timesclicked = 0
     lateinit var setofcolors: Set<GameTiles>
     var order = mutableListOf<GameTiles>()
+    var fileSave= FileSave(activity)
 
     fun click(id: Int) {
 
@@ -52,10 +53,10 @@ class Game(var activity:GameSActivity?) {
     fun lose(){
         println("wrong")
         User.playtimescore=User.playtimewins*8+User.score
-        //User.highscore=getSharedPreferences("game", AppCompatActivity.MODE_PRIVATE).getInt("highscore",0)
+        fileSave.load()
         if(User.playtimescore>User.highscore){
             User.highscore=User.playtimescore
-           // getSharedPreferences("game", AppCompatActivity.MODE_PRIVATE).edit().putInt("highscore",User.highscore).apply()
+           fileSave.save()
         }
         User.playtimewins=0
         activity?.nextPage()
