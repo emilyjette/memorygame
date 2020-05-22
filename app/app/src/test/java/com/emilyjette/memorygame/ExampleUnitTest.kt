@@ -22,6 +22,8 @@ class ExampleUnitTest {
     }
     @Before
     fun setup(){
+        User.reset()
+
         game.bluegametile.id=Blue
         game.redgametile.id=Red
         game.greengametile.id=Green
@@ -60,6 +62,22 @@ class ExampleUnitTest {
     }
     @Test
     fun `if score 8 win`(){
+        assertEquals(0,User.playtimewins)
 
+        game.setup()
+        game.startAgain()
+
+        //run 8 times clicked, order and ids. clicked x8
+        game.click(game.order[0].id)
+        game.click(game.order[1].id)
+        game.click(game.order[2].id)
+        game.click(game.order[3].id)
+        game.click(game.order[4].id)
+        game.click(game.order[5].id)
+        game.click(game.order[6].id)
+        game.click(game.order[7].id)
+
+        assertEquals(1,User.playtimewins)
     }
+    
 }
