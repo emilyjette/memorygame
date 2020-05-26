@@ -9,50 +9,50 @@
 
     <ImageButton
         android:id="@+id/greenButton"
-        android:layout_width="220dp"
-        android:layout_height="320dp"
-        android:layout_marginTop="104dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:backgroundTint="#29BF24"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/yellowButton"
+        app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blueButton"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.5"
         app:srcCompat="@android:drawable/divider_horizontal_dark" />
 
     <ImageButton
         android:id="@+id/yellowButton"
-        android:layout_width="220dp"
-        android:layout_height="310dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:backgroundTint="#EAE716"
         android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redButton"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintWidth_percent="0.5"
         app:srcCompat="@android:drawable/divider_horizontal_dark" />
 
     <ImageButton
         android:id="@+id/blueButton"
-        android:layout_width="220dp"
-        android:layout_height="310dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:backgroundTint="#1845B6"
         android:onClick="onClick"
-        app:layout_constraintEnd_toStartOf="@+id/redButton"
+        app:layout_constraintHeight_percent="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5"
         app:srcCompat="@android:drawable/divider_horizontal_dark" />
 
     <ImageButton
         android:id="@+id/redButton"
-        android:layout_width="220dp"
-        android:layout_height="310dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:backgroundTint="#CD1515"
         android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.5"
         app:srcCompat="@android:drawable/divider_horizontal_dark" />
 
     <ImageButton
