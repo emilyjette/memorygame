@@ -10,7 +10,7 @@
         android:id="@+id/textInputLayout"
         android:layout_width="365dp"
         android:layout_height="89dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,13 +27,10 @@
         android:id="@+id/button"
         android:layout_width="104dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginTop="32dp"
         android:onClick="onClick"
         android:text="Submit "
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

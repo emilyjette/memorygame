@@ -9,39 +9,28 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="168dp"
-        android:layout_height="93dp"
-        android:layout_marginTop="124dp"
+        android:layout_width="207dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="sans-serif-smallcaps"
         android:textAlignment="center"
         android:textColor="#D33535"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Hello Emily" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="106dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="148dp"
         android:layout_height="134dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="28dp"
         android:background="#292727"
         android:clickable="true"
         android:onClick="onClick"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@android:drawable/ic_media_play" />
