@@ -19,6 +19,7 @@ class ExampleUnitTest {
         const val Blue=2
         const val Green=3
         const val Yellow=4
+        const val Wrong=5
     }
     @Before
     fun setup(){
@@ -79,5 +80,69 @@ class ExampleUnitTest {
 
         assertEquals(1,User.playtimewins)
     }
-    
+    @Test
+    fun `if click is correct score +1`(){
+
+        game.setup()
+        game.startAgain()
+        assertEquals(0, User.score)
+
+        game.click(game.order[0].id)
+
+        assertEquals(1, User.score)
+
+    }
+    @Test
+    fun `when lose playtimescore is wins x8+score`(){
+
+        game.setup()
+        game.startAgain()
+
+        game.win()
+        game.win()
+        game.click(game.order[0].id)
+        game.click(game.order[1].id)
+        game.click(game.order[2].id)
+        game.click(game.order[3].id)
+        var score=4
+        var wins =2
+        game.click(Wrong)
+
+        assertEquals(wins*8+score ,User.playtimescore)
+    }
+    @Test
+    fun`lose right away`(){
+        game.setup()
+        game.startAgain()
+
+
+        game.click(game.order[0].id)
+        game.click(game.order[1].id)
+        game.click(game.order[2].id)
+        game.click(game.order[3].id)
+        var score=4
+        var wins =0
+        game.click(Wrong)
+
+        assertEquals(wins*8+score ,User.playtimescore)
+    }
+    @Test
+    fun`if playtimescore is greater than highscore, highscore=playtimescore`(){
+        game.setup()
+        game.startAgain()
+
+        User.highscore=10
+        User.playtimewins=2
+//        User.score=1
+        game.lose()
+//        game.win()
+//        game.win()
+//        game.click(game.order[0].id)
+//        game.click(Wrong)
+
+        var highscore=10
+        var playtimescore=16
+
+        assertEquals(playtimescore,User.highscore)
+    }
 }
