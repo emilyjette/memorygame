@@ -21,6 +21,6 @@ class StatusActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             finish()
-        }, 8000)
+        }, 5000)
     }
 }

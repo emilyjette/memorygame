@@ -133,7 +133,7 @@ class ExampleUnitTest {
 
         User.highscore=10
         User.playtimewins=2
-//        User.score=1
+//       User.score=1
         game.lose()
 //        game.win()
 //        game.win()

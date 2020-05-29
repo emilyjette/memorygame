@@ -21,5 +21,6 @@ class ExitActivity : AppCompatActivity() {
     fun onClick(view:View){
         var intent= Intent(this,MainActivity::class.java)
         startActivity(intent)
+
     }
 }

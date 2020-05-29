@@ -60,6 +60,7 @@
         android:layout_width="81dp"
         android:layout_height="77dp"
         android:backgroundTint="#373232"
+        android:onClick="onClick2"
         android:tint="#DF1111"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"

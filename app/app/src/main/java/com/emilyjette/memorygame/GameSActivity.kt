@@ -28,6 +28,10 @@ class GameSActivity : AppCompatActivity() {
     fun onClick(view:View){
         game.click(view.id)
     }
+    fun onClick2(view:View){
+        var intent= Intent(this,MainActivity::class.java)
+        startActivity(intent)
+    }
 
     fun setup(){
         game.bluegametile.oldcolor= blueButton.backgroundTintList
