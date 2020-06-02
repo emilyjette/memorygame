@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B6C6DD"
     tools:context=".LoginActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -20,7 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:hint="Enter Your Name" />
+            android:hint="Enter Your Name"
+            android:inputType="textPersonName"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -28,6 +31,7 @@
         android:layout_width="104dp"
         android:layout_height="65dp"
         android:layout_marginTop="32dp"
+        android:background="#f2f2f5"
         android:onClick="onClick"
         android:text="Submit "
         app:layout_constraintEnd_toEndOf="parent"

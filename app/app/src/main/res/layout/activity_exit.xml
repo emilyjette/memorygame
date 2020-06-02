@@ -4,29 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C0CBED"
+    android:background="#B6C6DD"
     tools:context=".ExitSActivity">
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="177dp"
+        android:layout_width="wrap_content"
         android:layout_height="133dp"
         android:layout_marginTop="100dp"
         android:fontFamily="sans-serif-smallcaps"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#f2f2f5"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="testing " />
+        tools:text="you got 16 points. Good job" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="97dp"
         android:layout_height="69dp"
         android:layout_marginTop="30dp"
-        android:backgroundTint="#9ca4b5"
+        android:backgroundTint="#f2f2f5"
         android:clickable="true"
         android:onClick="onClick"
         android:text="Back"

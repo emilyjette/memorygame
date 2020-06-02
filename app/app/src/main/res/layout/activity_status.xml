@@ -9,8 +9,8 @@
     tools:context=".StatusActivity">
 
     <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="470dp"
+        android:layout_height="39dp"
         android:layout_weight="1" />
 
     <LinearLayout
@@ -20,7 +20,7 @@
         <TextView
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Games Played"
@@ -116,7 +116,7 @@
     </LinearLayout>
 
     <Space
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="434dp"
+        android:layout_height="118dp"
         android:layout_weight="1" />
 </LinearLayout>
