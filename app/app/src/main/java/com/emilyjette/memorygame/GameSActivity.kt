@@ -29,7 +29,8 @@ class GameSActivity : AppCompatActivity() {
         game.click(view.id)
     }
     fun onClick2(view:View){
-       nextPage()
+        var intent= Intent(this,ExitActivity::class.java)
+        startActivity(intent)
     }
 
     fun setup(){
@@ -54,7 +55,6 @@ class GameSActivity : AppCompatActivity() {
     fun nextPage(){
         var intent= Intent(this,ExitActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
 
