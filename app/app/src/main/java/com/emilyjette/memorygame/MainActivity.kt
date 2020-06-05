@@ -7,6 +7,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    var fileSave= FileSave(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,7 +15,9 @@ class MainActivity : AppCompatActivity() {
         textView.text="Hello "+User.name
     }
     fun onClick(view:View){
+        fileSave.loadtotalgames()
         User.totalgames+=1
+        fileSave.savetotalgames()
         var intent= Intent(this,GameSActivity::class.java)
         startActivity(intent)
 

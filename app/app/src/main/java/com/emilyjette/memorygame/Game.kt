@@ -45,7 +45,10 @@ class Game(var activity:GameSActivity?) {
     }
 
     fun win(){
+        fileSave.loadtotalwins()
         User.playtimewins+=1
+        User.totalwins+=1
+        fileSave.savetotalwins()
         User.playtimescore=User.playtimewins*8
         activity?.goToStatusActivity()
     }

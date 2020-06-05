@@ -19,20 +19,21 @@
 
         <TextView
             android:id="@+id/textView15"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="50"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Games Played"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/playedStatus"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginStart="35dp"
+            android:layout_weight="50"
             android:fontFamily="sans-serif-smallcaps"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -44,20 +45,21 @@
 
         <TextView
             android:id="@+id/textView18"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="50"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Games Won "
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/winStatus"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginStart="35dp"
+            android:layout_weight="50"
             android:fontFamily="sans-serif-smallcaps"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -69,20 +71,21 @@
 
         <TextView
             android:id="@+id/textView19"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="50"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Highscore"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/highStatus"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginStart="35dp"
+            android:layout_weight="50"
             android:fontFamily="sans-serif-smallcaps"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -94,24 +97,26 @@
 
         <TextView
             android:id="@+id/textView21"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="50"
             android:fontFamily="sans-serif-smallcaps"
             android:text="Current Score"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/currentStatus"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginStart="35dp"
+            android:layout_weight="50"
             android:fontFamily="sans-serif-smallcaps"
             android:textAlignment="viewStart"
             android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:text="5" />
 
     </LinearLayout>
 
