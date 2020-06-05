@@ -9,5 +9,6 @@ class FileSave(var activity:GameSActivity?) {
 
     fun load(){
         User.highscore=activity?.getSharedPreferences("game", AppCompatActivity.MODE_PRIVATE)?.getInt("highscore",0) ?: 0
+
     }
 }

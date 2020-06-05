@@ -22,7 +22,8 @@
             android:fontFamily="sans-serif-smallcaps"
             android:hint="Enter Your Name"
             android:inputType="textPersonName"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textAllCaps="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

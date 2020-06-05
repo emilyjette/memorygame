@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         textView.text="Hello "+User.name
     }
     fun onClick(view:View){
+        User.totalgames+=1
         var intent= Intent(this,GameSActivity::class.java)
         startActivity(intent)
 

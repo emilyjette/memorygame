@@ -16,8 +16,8 @@ class StatusActivity : AppCompatActivity() {
         Context.UI_MODE_SERVICE
         playedStatus.text=""+User.totalgames
         winStatus.text=""+User.totalwins
-        highStatus.text=""+User.highscore//19?
-        currentStatus.text=""+User.playtimescore//19?
+        highStatus.text=""+User.highscore
+        currentStatus.text=""+User.playtimescore
 
         Handler(Looper.getMainLooper()).postDelayed({
             finish()
