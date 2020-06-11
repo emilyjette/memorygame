@@ -23,13 +23,13 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="97dp"
-        android:layout_height="69dp"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="#f2f2f5"
         android:clickable="true"
         android:onClick="onClick"
-        android:text="Back"
+        android:text="@string/button2"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
